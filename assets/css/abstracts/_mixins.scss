@@ -1,0 +1,30 @@
+@use "../abstracts/functions";
+@mixin responsive($device) {
+  @if $device == "xl-devices" {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+  @if $device == "lg-devices" {
+    @media (max-width: 990px) {
+      @content;
+    }
+  } @else if $device == "md-devices" {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $device == "sm-devices" {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $device == "xs-devices" {
+    @media (max-width: 460px) {
+      @content;
+    }
+  }
+  @else if $device == "xxs-devices" {
+    @media (max-width: 370px) {
+      @content;
+    }
+  }
+}

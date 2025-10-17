@@ -1,0 +1,35 @@
+@use "abstracts/functions";
+@use "abstracts/mixins";
+@use "abstracts/colors";
+.fund-returns-performance {
+  .time-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: functions.rem(30);
+  }
+
+  .time-btn {
+    background: #f4f4f4;
+    border: 1px solid transparent;
+    font-family: "Inter-Medium";
+    border-radius: 12px;
+    padding: functions.rem(10) functions.rem(18);
+    font-weight: 500;
+    color: #212931;
+    cursor: pointer;
+    transition: 0.3s;
+    &.active,
+    &:hover {
+      background: #e8e8e8;
+      color: #fff;
+      box-shadow: 0 2px 4px rgb(56 56 56 / 25%);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .chart-container {
+    position: relative;
+    height: 320px;
+    width: 100%;
+  }
+}

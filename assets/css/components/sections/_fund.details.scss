@@ -1,0 +1,196 @@
+@use "abstracts/functions";
+@use "abstracts/mixins";
+@use "abstracts/colors";
+
+body {
+  background: #f7f9fa;
+}
+.fund-details-section {
+  padding: functions.rem(40) functions.rem(8);
+  .fund-wrapper {
+    border: 1px solid transparent;
+    border-radius: 12px;
+    height: 100%;
+    padding: functions.rem(45) functions.rem(20);
+    background: colors.$color-white;
+    box-shadow: 0 4px 20px colors.$color-shadow;
+
+    .fund-details-wrapper {
+      display: flex;
+      margin-bottom: functions.rem(30);
+      .fund-mono {
+        height: 60px;
+        width: 60px;
+        font-size: functions.rem(24);
+        background: colors.$color-soft-gray;
+      }
+      .fund-info {
+        .fund-name {
+          font-size: functions.rem(24);
+          font-family: "Poppins-Bold";
+          margin-bottom: 8px;
+        }
+        .fund-code {
+          color: colors.$color-muted-gray;
+          font-size: functions.rem(16);
+
+          margin-bottom: 0;
+          font-family: "Inter-Regular";
+        }
+      }
+    }
+    .fund-summary {
+      display: flex;
+      flex-direction: column;
+      row-gap: 28px;
+      justify-content: space-between;
+      p {
+        font-family: "Inter-Regular";
+        line-height: 28px;
+        font-size: functions.rem(14);
+        color: colors.$color-dark-gray;
+      }
+      .fund-date-time {
+        color: colors.$color-muted-gray;
+        font-size: functions.rem(14);
+        margin-top: functions.rem(15);
+        font-family: "Inter-Regular";
+      }
+    }
+    .fund-data {
+      border: 1px solid transparent;
+      border-radius: 12px;
+      background: colors.$color-soft-gray;
+      padding: functions.rem(20);
+      .fund-details-table {
+        line-height: 32px;
+        table-layout: fixed;
+        width: 100%;
+        .desc-text {
+          font-size: functions.rem(14);
+          text-align: right;
+          font-family: "Inter-Regular";
+          line-height: 21px;
+          color: #617e94;
+        }
+        .desc-bold {
+          color: #212931;
+          font-size: functions.rem(14);
+          font-family: "Inter-Medium";
+        }
+      }
+    }
+    .funds-badges-container {
+      margin-top: functions.rem(64);
+      .performance-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        .performance-badge {
+          padding: functions.rem(30);
+          border-radius: 12px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          font-size: functions.rem(16);
+          font-weight: 500;
+          font-family: "Inter-Medium";
+          transition: all 0.2s ease;
+          cursor: pointer;
+
+          &.positive {
+            background: #e9f9f0;
+            color: #2e8b57;
+          }
+
+          &.negative {
+            background: #fdecea;
+            color: #c0392b;
+          }
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+  .fund-returns-performance {
+    border: 1px solid transparent;
+    border-radius: 12px;
+    height: 100%;
+    padding: functions.rem(45) functions.rem(20);
+    background: colors.$color-white;
+    box-shadow: 0 4px 20px colors.$color-shadow;
+    .chart-icon {
+      height: 24px;
+      width: 24px;
+      padding: functions.rem(18);
+      border-radius: 50%;
+      background: colors.$color-soft-gray;
+    }
+    h2 {
+      font-size: functions.rem(20);
+      font-family: "Inter-Bold";
+      margin-bottom: 6px;
+    }
+    .tagline-f {
+      color: #979494;
+      font-size: 1rem;
+      margin-bottom: 0;
+      font-family: "Inter-Regular";
+    }
+  }
+}
+
+@include mixins.responsive("md-devices") {
+  .fund-details-section {
+    padding: functions.rem(20) functions.rem(8);
+    .fund-wrapper {
+      .fund-summary {
+        p {
+          line-height: 22px;
+          font-size: functions.rem(16);
+        }
+      }
+      .funds-badges-container {
+        margin-top: functions.rem(60);
+        .performance-badges {
+          .performance-badge {
+            padding: functions.rem(30);
+            font-size: functions.rem(14);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mixins.responsive("sm-devices") {
+  .fund-details-section {
+    .fund-wrapper {
+      .fund-details-wrapper {
+        .fund-info {
+          .fund-name {
+            font-size: functions.rem(18);
+            line-height: 21px;
+          }
+        }
+      }
+      .funds-badges-container {
+        margin-top: functions.rem(40);
+        .performance-badges {
+          .performance-badge {
+            padding: functions.rem(25);
+          }
+        }
+      }
+    }
+    .fund-returns-performance {
+      h2 {
+        font-size: functions.rem(18);
+      }
+    }
+  }
+}

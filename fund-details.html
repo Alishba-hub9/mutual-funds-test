@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mutual Fund Details</title>
+    <link rel="stylesheet" href="dist/css/vendors.min.css" />
+    <link rel="stylesheet" href="dist/css/style.css" />
+  </head>
+  <body>
+    <section class="fund-details-section">
+      <div class="container-fluid">
+        <div class="row gy-4">
+          <div class="col-lg-7">
+            <div class="fund-wrapper">
+              <div class="text-center">
+                <div class="spinner-border" role="status"></div>
+              </div>
+              <div class="fund-details-wrapper" id="fund-details-wrapper"></div>
+              <div class="row gy-lg-4 gy-3">
+                <div class="col-12 col-xl-6">
+                  <div class="fund-summary"></div>
+                </div>
+                <div class="col-12 col-xl-6">
+                  <div class="fund-data"></div>
+                </div>
+              </div>
+              <div id="funds-badges" class="funds-badges-container"></div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="fund-returns-performance">
+              <div class="d-flex mb-4">
+                <i class="chart-icon fa-solid fa-chart-line me-2"></i>
+                <div>
+                  <h2>NAV Returns Performance Analysis</h2>
+                  <span class="tagline-f">Track returns over the years</span>
+                </div>
+              </div>
+              <div class="time-buttons">
+                <button class="time-btn active" data-range="1D">1D</button>
+                <button class="time-btn" data-range="1W">1W</button>
+                <button class="time-btn" data-range="1Y">1Y</button>
+                <button class="time-btn" data-range="3Y">3Y</button>
+                <button class="time-btn" data-range="5Y">5Y</button>
+              </div>
+              <div class="text-center">
+                <div class="spinner-border" role="status"></div>
+              </div>
+              <div class="chart-container">
+                <canvas id="navChart" height="140"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="dist/js/vendors.min.js"></script>
+    <script src="dist/js/script.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+@use "abstracts/functions";
+@use "abstracts/mixins";
+@use "abstracts/colors";
+
+.mutual-funds {
+  padding: functions.rem(60) 0;
+  .funds-content-header {
+    .tabs {
+      display: flex;
+      justify-content: flex-end;
+      gap: functions.rem(12);
+      align-items: center;
+
+      h1 {
+        font-size: functions.rem(28);
+        font-family: "Poppins-Bold";
+        color: #111;
+        margin: 0 auto 0 0;
+      }
+
+      .fund-tab {
+        padding: functions.rem(14) functions.rem(26);
+        border-radius: 8px 8px 0 0;
+        cursor: pointer;
+        font-family: "Poppins-Regular";
+        font-weight: 600;
+        background-color: colors.$color-white;
+        font-size: functions.rem(16);
+        transition: all 0.3s ease;
+        border: 1px solid #e8e8e8;
+
+        &.gainers-tab {
+          background: #f9e3e3;
+          color: colors.$color-dark-gray;
+        }
+
+        &.losers-tab {
+          background: #f3eaea;
+          color: colors.$color-dark-gray;
+        }
+
+        &.active[data-tab="gainers"],
+        &.active[data-tab="losers"] {
+          background: #e7e7e7;
+          color: rgb(65, 65, 65);
+        }
+      }
+    }
+  }
+
+  .funds-content-wrapper {
+    border-radius: 8px 0 8px 8px;
+    padding: functions.rem(18);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease;
+    border: 1px solid #e8e8e8;
+
+    &.gainers,
+    &.losers {
+      background: #e7e7e7;
+    }
+
+    .funds-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      .spinner-border {
+        display: none;
+      }
+
+      .funds-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        background: colors.$color-white;
+        padding: functions.rem(18) functions.rem(22);
+        border-radius: 8px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 15px colors.$color-shadow;
+        }
+      }
+    }
+    .view-all-btn {
+      border: 1px solid transparent;
+      background-color: colors.$color-dark-gray;
+      padding: functions.rem(15) 0;
+      font-family: Inter-Bold;
+      color: colors.$color-white;
+      font-size: functions.rem(16);
+      text-decoration: none;
+      width: 50%;
+      margin: functions.rem(20) auto 0;
+      display: none;
+      justify-content: center;
+      transition: 0.3s ease;
+
+      &:hover {
+        background: #111;
+      }
+    }
+  }
+}
+
+@include mixins.responsive("md-devices") {
+  .mutual-funds {
+    .funds-content-header {
+      .tabs {
+        h1 {
+          font-size: functions.rem(23);
+        }
+        .fund-tab {
+          padding: functions.rem(12) functions.rem(18);
+        }
+      }
+    }
+    .funds-content-wrapper {
+      .fund-info {
+        .fund-code {
+          font-size: functions.rem(19);
+        }
+        .fund-description {
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .view-all-btn {
+        width: 40%;
+        padding: functions.rem(10) 0;
+      }
+    }
+  }
+}
+
+@include mixins.responsive("sm-devices") {
+  .mutual-funds {
+    padding: functions.rem(20) functions.rem(8);
+    .funds-content-header {
+      .tabs {
+        h1 {
+          font-size: functions.rem(18);
+        }
+        .fund-tab {
+          padding: functions.rem(12) functions.rem(16);
+          font-size: functions.rem(14);
+        }
+      }
+    }
+    .funds-content-wrapper {
+      padding: functions.rem(13);
+      .fund-info {
+        .fund-code {
+          font-size: functions.rem(16);
+        }
+      }
+      .view-all-btn {
+        width: 30%;
+        font-size: functions.rem(14);
+      }
+    }
+  }
+}

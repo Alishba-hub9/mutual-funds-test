@@ -1,0 +1,68 @@
+@use "abstracts/functions";
+@use "abstracts/mixins";
+@use "abstracts/colors";
+
+html,
+body {
+  overflow-x: hidden;
+  font-size: functions.rem(16);
+  @include mixins.responsive("md-devices") {
+    font-size: functions.rem(14);
+  }
+}
+
+.fund-mono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #efefef;
+  border-radius: 50%;
+  font-size: functions.rem(16);
+  font-family: Inter-Regular;
+}
+
+.fund-info {
+  flex: 1;
+  margin-left: 15px;
+
+  .fund-code {
+    font-size: functions.rem(21);
+    color: #222;
+    font-family: "Inter-Bold";
+    margin-bottom: 4px;
+  }
+
+  .fund-description {
+    font-size: functions.rem(16);
+    font-family: "Inter-Regular";
+    color: colors.$color-muted-gray;
+  }
+}
+
+.fund-stats {
+  text-align: right;
+
+  .fund-nav {
+    font-size: functions.rem(12);
+    color: colors.$color-dark-gray;
+    font-family: "Inter-Medium";
+    justify-content: center;
+  }
+
+  .fund-performance {
+    font-weight: bold;
+    margin-top: 5px;
+    font-family: "Roboto-Bold";
+    font-size: functions.rem(14);
+
+    &.positive {
+      color: #2c9b7e;
+    }
+
+    &.negative {
+      color: #e35454;
+    }
+  }
+}

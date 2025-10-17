@@ -1,0 +1,33 @@
+{
+  "name": "mutual-funds-website",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:server": "npx live-server --port=3001",
+    "start": "concurrently \"gulp \" \"npm run start:server\""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "gulp": "^5.0.1",
+    "gulp-autoprefixer": "^10.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-uglify": "^3.0.2",
+    "imagemin-pngquant": "^10.0.0",
+    "live-server": "^1.2.2",
+    "sass": "^1.93.2"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "bootstrap": "^5.3.8",
+    "chart.js": "^4.5.1",
+    "jquery": "^3.7.1"
+  }
+}
